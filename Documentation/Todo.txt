@@ -1,0 +1,7 @@
+-Finish issue boards git for presentation
+
+-Monthly, daily schedule (admin)
+-Schedule page same as employeeView in applicaiton(employee)
+
+-Make comboboxes work
+-Make pretty

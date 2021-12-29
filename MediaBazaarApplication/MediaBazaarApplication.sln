@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaBazaarApplication", "MediaBazaarApplication\MediaBazaarApplication.csproj", "{834EBA18-C501-4874-A884-EA87C7B6411E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaBazaarUnitTestProject", "MediaBazaarUnitTestProject\MediaBazaarUnitTestProject.csproj", "{12996CB7-B6FC-4FD5-8481-17F23B1825B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{834EBA18-C501-4874-A884-EA87C7B6411E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{834EBA18-C501-4874-A884-EA87C7B6411E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{834EBA18-C501-4874-A884-EA87C7B6411E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{834EBA18-C501-4874-A884-EA87C7B6411E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12996CB7-B6FC-4FD5-8481-17F23B1825B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12996CB7-B6FC-4FD5-8481-17F23B1825B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12996CB7-B6FC-4FD5-8481-17F23B1825B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12996CB7-B6FC-4FD5-8481-17F23B1825B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B70E4DA9-18B5-4A41-8866-119F95514CB8}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,426 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: studmysql01.fhict.local
+-- Generation Time: Nov 03, 2020 at 01:44 PM
+-- Server version: 5.7.26-log
+-- PHP Version: 7.3.19
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `dbi401477`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `departments`
+--
+
+CREATE TABLE `departments` (
+  `department_id` int(20) NOT NULL,
+  `department_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `departments`
+--
+
+INSERT INTO `departments` (`department_id`, `department_name`) VALUES
+(1, 'Administration'),
+(2, 'HR'),
+(4, 'Logistics'),
+(3, 'Marketing');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `department_manager`
+--
+
+CREATE TABLE `department_manager` (
+  `id` int(20) NOT NULL,
+  `emp_id` int(20) NOT NULL,
+  `department_id` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `department_manager`
+--
+
+INSERT INTO `department_manager` (`id`, `emp_id`, `department_id`) VALUES
+(1, 2, 3),
+(2, 34, 2),
+(3, 35, 4),
+(6, 2, 2),
+(10, 35, 2),
+(13, 34, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employees`
+--
+
+CREATE TABLE `employees` (
+  `emp_id` int(20) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL DEFAULT '1234',
+  `emp_DOB` date NOT NULL,
+  `phone` int(20) NOT NULL,
+  `street` varchar(255) NOT NULL,
+  `house_nr` int(6) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `department_id` int(20) NOT NULL,
+  `hourly_wage` double(20,2) NOT NULL DEFAULT '0.00',
+  `salary` double(20,2) DEFAULT '0.00',
+  `start_date` date NOT NULL,
+  `end_date` date DEFAULT NULL,
+  `role` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `employees`
+--
+
+INSERT INTO `employees` (`emp_id`, `first_name`, `last_name`, `email`, `password`, `emp_DOB`, `phone`, `street`, `house_nr`, `city`, `department_id`, `hourly_wage`, `salary`, `start_date`, `end_date`, `role`) VALUES
+(1, 'admin', 'admin', 'admin@email.com', 'ISMvKXpXpadDiUoOSoAfww==', '2020-10-09', 698321123, '\r\nStreet', 100, 'Eindhoven', 1, 100000.00, 100000.00, '2020-10-09', NULL, 'Admin'),
+(2, 'John', 'Doe', 'john@email.com', 'rpS+PNUyzkoCWISBnrCMmA==', '2020-10-09', 898123121, 'Boschdijk', 20, 'Eindhoven', 3, 0.00, 10000.00, '2020-10-09', NULL, 'Manager'),
+(3, 'Jane', 'Deer', 'jane@email.com', 'gnzLDuqKcGxMNKFokfhOew==', '2020-10-09', 613432214, 'Keten', 2, 'Eindhoven', 2, 0.00, 0.00, '2020-10-09', NULL, 'Employee'),
+(31, 'Lijsbeth', 'Rodolf', 'rodolf@email.com', 'gnzLDuqKcGxMNKFokfhOew==', '1979-12-03', 645928398, 'Salt', 15, 'Amsterdam', 4, 0.00, 0.00, '2020-10-09', '2020-11-01', 'Employee'),
+(32, 'Regina', 'Filangee', 'reginafilangee@email.com', 'gnzLDuqKcGxMNKFokfhOew==', '1993-10-20', 456123452, 'Pepper', 17, 'Eindhoven', 4, 0.00, 0.00, '2020-10-09', NULL, 'Employee'),
+(33, 'Josh', 'Ford', 'joshford@email.com', 'gnzLDuqKcGxMNKFokfhOew==', '1989-01-19', 689255893, 'Kurhaus', 23, 'TheHague', 4, 0.00, 0.00, '2020-10-09', NULL, 'Employee'),
+(34, 'Dan', 'Harmon', 'danharmon@email.com', 'rpS+PNUyzkoCWISBnrCMmA==', '1973-01-03', 612345674, 'Harmon', 27, 'Amsterdam', 2, 0.00, 10000.00, '2020-10-09', NULL, 'Manager'),
+(35, 'John', 'Travolta', 'johntravolta@email.com', 'rpS+PNUyzkoCWISBnrCMmA==', '1973-02-16', 621389865, 'Sour', 50, 'Eindhoven', 4, 0.00, 10000.00, '2020-10-09', NULL, 'Manager'),
+(36, 'Tsanko', 'Nedelchev', 'tsankonedelchev@email.com', 'gnzLDuqKcGxMNKFokfhOew==', '1997-02-18', 645688545, 'Street', 10, 'Eindhoven', 3, 0.00, 0.00, '2020-10-09', NULL, 'Employee'),
+(37, 'Menderes', 'Sacli', 'menderes@email.com', 'gnzLDuqKcGxMNKFokfhOew==', '2000-06-15', 634952312, 'Sour', 122, 'Eindhoven', 3, 0.00, 0.00, '2020-11-02', NULL, 'Employee'),
+(38, 'Rick', 'Ham', 'rickvanham@email.com', 'gnzLDuqKcGxMNKFokfhOew==', '2000-06-26', 654567756, 'Lemon', 10, 'Eindhoven', 3, 11.00, 0.00, '2020-10-31', '2020-11-01', 'Employee'),
+(39, 'Arnold', 'Schwarzenegger', 'arny@email.com', 'gnzLDuqKcGxMNKFokfhOew==', '1989-10-25', 612837231, 'Beef', 101, 'Eindhoven', 4, 11.00, 0.00, '2020-10-14', '2020-11-01', 'Employee');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee_roles`
+--
+
+CREATE TABLE `employee_roles` (
+  `role_id` int(20) NOT NULL,
+  `role_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `employee_roles`
+--
+
+INSERT INTO `employee_roles` (`role_id`, `role_name`) VALUES
+(1, 'Employee'),
+(2, 'Manager'),
+(3, 'Admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `items`
+--
+
+CREATE TABLE `items` (
+  `item_id` int(20) NOT NULL,
+  `item_name` varchar(255) NOT NULL,
+  `price` double(20,2) NOT NULL,
+  `info` text NOT NULL,
+  `category` varchar(255) NOT NULL,
+  `in_store_amount` int(11) NOT NULL,
+  `warehouse_amount` int(11) NOT NULL,
+  `min_quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `items`
+--
+
+INSERT INTO `items` (`item_id`, `item_name`, `price`, `info`, `category`, `in_store_amount`, `warehouse_amount`, `min_quantity`) VALUES
+(20, 'Logitech M171', 18.65, 'Wired Mouse with built-in LED\'s', 'MOUSES', 135, 6, 10),
+(21, 'Logitech M270', 34.95, 'Classic wired keyboard from Logitech', 'KEYBOARDS', 33, 10, 10),
+(22, 'Logitech MX-master 3', 85.99, 'Newest model ergonomic wireless mouse from Logitech', 'MOUSES', 40, 8, 10),
+(23, 'Sony Pulse 3d wireless headset', 99.99, 'Newest model wireless headset from Sony, now with extra bass', 'HEADPHONES', 11, 10, 10),
+(24, 'Steelseries Arctis 3 2019', 68.99, 'Wired gaming headset from Steelseries', 'HEADPHONES', 16, 9, 10),
+(25, 'Logitech G502 Hero', 70.99, 'Precise Wireless mouse from Logitech', 'MOUSES', 20, 20, 10),
+(26, 'Logitech K501', 14.51, 'Wired keyboard from Logitech', 'KEYBOARDS', 40, 20, 20),
+(27, 'Trust GX895', 110.99, 'Wireless RGB Keyboard from Trust', 'KEYBOARDS', 20, 10, 10),
+(28, 'Logitech M705', 29.95, 'Wireless mouse from Logitech', 'MOUSES', 30, 50, 25),
+(29, 'Sony WH-1000XM4', 299.95, 'Flagship headset from Sony', 'HEADPHONES', 10, 20, 10),
+(30, 'Turtle beach recon 70', 80.95, 'Wireless gaming headset', 'HEADPHONES', 166, 18, 15),
+(31, 'Logitech M100', 11.99, 'Basic wired mouse', 'MOUSES', 252, 10, 5),
+(32, 'Trust Recon 500', 39.95, 'Wireless RGB gaming mouse from Trust', 'MOUSES', 41, 50, 10),
+(33, 'Arctis 5 wireless 2020', 149.99, 'Wireless gaming headset', 'HEADPHONES', 28, 50, 10),
+(34, 'HP wireless 200', 24.99, 'Basic wireless mouse', 'MOUSES', 55, 30, 20),
+(35, 'Trust X60', 49.95, 'Wireless gaming mouse', 'MOUSES', 52, 10, 10),
+(36, 'Logitech G332', 69.00, 'Wired gaming headset', 'HEADPHONES', 28, 50, 10),
+(37, 'Razer Nari Ultimate', 159.95, 'Flagship wireless gaming headset', 'HEADPHONES', 40, 20, 10),
+(38, 'Logitech M220', 49.95, 'Wired gaming mouse', 'MOUSES', 59, 10, 10),
+(39, 'Logitech M340', 50.00, 'New Wireless mouse', 'MOUSES', 28, 50, 10),
+(40, 'Razer Nari Essential', 79.99, 'Wireless gaming headset from Razer', 'HEADPHONES', 53, 10, 10),
+(41, 'JBL Quantum 300', 109.95, 'Wireless on-ear gaming headset', 'HEADPHONES', 40, 20, 5),
+(42, 'Trust Classicline', 9.99, 'Basic keyboard', 'KEYBOARDS', 52, 10, 10),
+(43, 'Logitech MK235', 29.99, 'basic keyboard with RGB', 'KEYBOARDS', 30, 20, 10),
+(44, 'HyperX Cloud', 49.95, 'Wired gaming headset', 'HEADPHONES', 49, 15, 10),
+(45, 'Mouse', 19.00, 'Its a test mouse', 'HEADPHONES', 25, 18, 10);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `restock`
+--
+
+CREATE TABLE `restock` (
+  `id` int(11) NOT NULL,
+  `order_nr` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  `amount` int(11) NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `retirement_history`
+--
+
+CREATE TABLE `retirement_history` (
+  `id` int(20) NOT NULL,
+  `emp_id` int(20) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `emp_DOB` date NOT NULL,
+  `phone` int(20) NOT NULL,
+  `street` varchar(255) NOT NULL,
+  `house_nr` int(6) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `department_id` varchar(20) NOT NULL,
+  `start_date` date NOT NULL,
+  `retire_date` date NOT NULL,
+  `role` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `retirement_history`
+--
+
+INSERT INTO `retirement_history` (`id`, `emp_id`, `first_name`, `last_name`, `email`, `emp_DOB`, `phone`, `street`, `house_nr`, `city`, `department_id`, `start_date`, `retire_date`, `role`) VALUES
+(37, 39, 'Arnold', 'Schwarzenegger', 'arny@email.com', '1989-10-25', 612837231, 'Beef', 101, 'Eindhoven', '4', '2020-10-14', '2020-11-01', 'Employee');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `shifts`
+--
+
+CREATE TABLE `shifts` (
+  `shift_id` int(20) NOT NULL,
+  `emp_id` int(20) NOT NULL,
+  `shift_date` date NOT NULL,
+  `timeframe` enum('MORNING','AFTERNOON','EVENING','MORNING-AFTERNOON','MORNING-EVENING','AFTERNOON-EVENING') NOT NULL,
+  `department_id` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `shifts`
+--
+
+INSERT INTO `shifts` (`shift_id`, `emp_id`, `shift_date`, `timeframe`, `department_id`) VALUES
+(120, 31, '2020-10-09', 'MORNING-AFTERNOON', 4),
+(121, 32, '2020-10-09', 'MORNING-AFTERNOON', 4),
+(123, 3, '2020-10-09', 'AFTERNOON-EVENING', 4),
+(124, 31, '2020-10-10', 'MORNING-AFTERNOON', 4),
+(125, 33, '2020-10-10', 'AFTERNOON-EVENING', 4),
+(126, 32, '2020-10-10', 'MORNING-AFTERNOON', 4),
+(127, 35, '2020-10-10', 'MORNING-AFTERNOON', 4),
+(129, 39, '2020-10-09', 'MORNING-AFTERNOON', 4),
+(131, 36, '2020-10-09', 'MORNING-AFTERNOON', 3),
+(132, 37, '2020-10-09', 'AFTERNOON-EVENING', 3),
+(133, 38, '2020-10-09', 'MORNING-AFTERNOON', 3),
+(134, 1, '2020-10-09', 'MORNING', 1),
+(140, 41, '2020-10-10', 'MORNING-AFTERNOON', 2),
+(141, 34, '2020-10-10', 'EVENING', 2),
+(142, 40, '2020-10-10', 'MORNING', 2),
+(146, 41, '2020-10-09', 'AFTERNOON-EVENING', 2),
+(147, 40, '2020-10-09', 'MORNING', 2),
+(148, 35, '2020-10-09', 'MORNING-AFTERNOON', 4),
+(149, 3, '2020-10-10', 'MORNING-AFTERNOON', 2),
+(150, 3, '2020-10-15', 'MORNING', 2),
+(151, 34, '2020-10-15', 'AFTERNOON-EVENING', 2),
+(152, 37, '2020-10-15', 'MORNING-AFTERNOON', 3),
+(153, 38, '2020-10-15', 'MORNING-EVENING', 3),
+(154, 36, '2020-10-15', 'EVENING', 3),
+(155, 35, '2020-10-15', 'MORNING-AFTERNOON', 4),
+(157, 51, '2020-10-15', 'MORNING-EVENING', 4),
+(158, 3, '2020-10-27', 'MORNING-AFTERNOON', 2),
+(159, 34, '2020-10-27', 'EVENING', 2),
+(160, 1, '2020-10-27', 'EVENING', 1),
+(161, 1, '2020-10-28', 'AFTERNOON', 1),
+(162, 1, '2020-10-29', 'MORNING', 1),
+(163, 37, '2020-11-02', 'MORNING-AFTERNOON', 3),
+(164, 36, '2020-11-01', 'MORNING', 3),
+(165, 38, '2020-10-31', 'MORNING-EVENING', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `website`
+--
+
+CREATE TABLE `website` (
+  `user` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `website`
+--
+
+INSERT INTO `website` (`user`, `password`) VALUES
+('username', 'password');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `departments`
+--
+ALTER TABLE `departments`
+  ADD PRIMARY KEY (`department_id`),
+  ADD UNIQUE KEY `department_name` (`department_name`);
+
+--
+-- Indexes for table `department_manager`
+--
+ALTER TABLE `department_manager`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `department_id2` (`department_id`),
+  ADD KEY `manager_id` (`emp_id`);
+
+--
+-- Indexes for table `employees`
+--
+ALTER TABLE `employees`
+  ADD PRIMARY KEY (`emp_id`),
+  ADD KEY `department_id` (`department_id`);
+
+--
+-- Indexes for table `employee_roles`
+--
+ALTER TABLE `employee_roles`
+  ADD PRIMARY KEY (`role_id`);
+
+--
+-- Indexes for table `items`
+--
+ALTER TABLE `items`
+  ADD PRIMARY KEY (`item_id`);
+
+--
+-- Indexes for table `restock`
+--
+ALTER TABLE `restock`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `retirement_history`
+--
+ALTER TABLE `retirement_history`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `shifts`
+--
+ALTER TABLE `shifts`
+  ADD PRIMARY KEY (`shift_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `departments`
+--
+ALTER TABLE `departments`
+  MODIFY `department_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `department_manager`
+--
+ALTER TABLE `department_manager`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `employees`
+--
+ALTER TABLE `employees`
+  MODIFY `emp_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
+-- AUTO_INCREMENT for table `employee_roles`
+--
+ALTER TABLE `employee_roles`
+  MODIFY `role_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `items`
+--
+ALTER TABLE `items`
+  MODIFY `item_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
+--
+-- AUTO_INCREMENT for table `restock`
+--
+ALTER TABLE `restock`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `retirement_history`
+--
+ALTER TABLE `retirement_history`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT for table `shifts`
+--
+ALTER TABLE `shifts`
+  MODIFY `shift_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=166;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `department_manager`
+--
+ALTER TABLE `department_manager`
+  ADD CONSTRAINT `department_id2` FOREIGN KEY (`department_id`) REFERENCES `departments` (`department_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `manager_id` FOREIGN KEY (`emp_id`) REFERENCES `employees` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `employees`
+--
+ALTER TABLE `employees`
+  ADD CONSTRAINT `department_id` FOREIGN KEY (`department_id`) REFERENCES `departments` (`department_id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
